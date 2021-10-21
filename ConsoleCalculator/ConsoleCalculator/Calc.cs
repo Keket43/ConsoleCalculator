@@ -42,6 +42,16 @@ namespace ConsoleCalculator
             return x % y;
         }
 
+        public static double Sqrt(double num, double sqrt) //квадратный корень
+        {
+            return Math.Sqrt(num);
+        }
+
+        //public static double Sqrt(double num, double sqrt) //квадратный корень
+        //{
+        //    return Math.Sqrt(num);
+        //}
+
         static public double NumInput()
         {
             string numberString = Console.ReadLine();
