@@ -55,5 +55,32 @@ namespace ConsoleCalculator.UnitTests
             double actualResult = Calc.RestOfDivide(firstArgument, secondArgument);
             Assert.AreEqual(actualResult, expectedResult);
         }
+        [TestCase(3, 6)]
+        [TestCase(6, 720)]
+        [TestCase(13, 6227020800)]
+        [TestCase(0, 1)]
+        public void FactorialTest(double firstArgument, double expectedResult)
+        {
+            double actualResult = Calc.Factorial(firstArgument);
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestCase(6, 3, 216)]
+        [TestCase(2, 13, 8192)]
+        [TestCase(3, 8, 6561)]
+        [TestCase(3, 5, 243)]        
+        public void DegreeTest(double firstArgument, double secondArgument, double expectedResult)
+        {
+            double actualResult = Calc.Stepen(firstArgument, secondArgument);
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestCase(12, 3, 4)]
+        [TestCase(666, 0, 0)]
+        public void PositiveDivisionCheck(double num1, double num2, double expResult)
+        {
+            double actual = Calc.Divide(num1, num2);
+            Assert.AreEqual(expResult, actual);
+        }       
     }
 }

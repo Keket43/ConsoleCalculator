@@ -12,7 +12,6 @@ namespace ConsoleCalculator
         {
             return x + y;
         }
-
         // а раньше мы так писали:      
         //  double res = n1 + n2;
         //return res;
@@ -21,7 +20,6 @@ namespace ConsoleCalculator
         {
             return x - y;
         }
-
         public static double Multiply(double x, double y)
         {
             return x * y;
@@ -35,19 +33,38 @@ namespace ConsoleCalculator
             }
             return x / y;
         }
-
-
         public static double RestOfDivide(double x, double y)
         {
             return x % y;
         }
-
-        public static double Sqrt(double num, double sqrt) //квадратный корень
+        public static double Sqrt(double x) //квадратный корень
         {
-            return Math.Sqrt(num);
+            return Math.Sqrt(x);
         }
+        public static double Factorial(double x) 
+        {
+            double factorial = x;
 
-       
+             if (x == 0)
+              {
+                return 1;
+              }
+
+            for (var i = x - 1; i > 1; i--)
+            {
+                factorial *= i;
+            }
+            return factorial;
+        }
+        public static double Stepen(double x, double y) 
+        {
+            double temp = 1;
+            for (double i = 0; i < y; i++)
+            {
+                temp *= x;
+            }
+            return temp;
+        }
         static public double NumInput()
         {
             string numberString = Console.ReadLine();
@@ -62,12 +79,11 @@ namespace ConsoleCalculator
             //парсинг и валидация
             return numberDouble;
         }
-
         static public bool OperatorInput(out string mathOperator)
         {
             mathOperator = Console.ReadLine();
             List<string> operatorWithSecondArgument = new List<string> { "+", "-", "*", "/", "%", "^" };
-            List<string> operatorWithOneArgument = new List<string> { "sqrt", "!" };
+            List<string> operatorWithOneArgument = new List<string> { "sqrt", "!", "S" };
 
             while (true)
             {
