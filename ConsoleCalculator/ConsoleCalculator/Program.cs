@@ -10,12 +10,12 @@ namespace ConsoleCalculator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Simple console calculator!\n");
-            Console.Write("Inout first operand: ");
+            Console.WriteLine("Simple Console Calculator!\n");
+            Console.Write("Please, input first operand: "); //число с которым будет производиться операция
             double firstOperand = Calc.NumInput();
             Console.WriteLine();
 
-            Console.Write("Input perator (+ - * / % sqrt): ");
+            Console.Write("Choose and input operator (+ - * / % sqrt ! S): ");
             bool isSecondNeed = Calc.OperatorInput(out string mathOperator);
             double secondOperand = 0;
 
@@ -44,15 +44,17 @@ namespace ConsoleCalculator
                 case "%":
                     result = Calc.RestOfDivide(firstOperand, secondOperand);
                     break;
-                //case "sqrt":
-                //    result = Calc.Add(firstOperand, secondOperand);
-                //    break;
-                //case "!":
-                //    result = Calc.Add(firstOperand, secondOperand);
-                //    break;
+                case "sqrt":
+                    result = Calc.Sqrt(firstOperand);
+                    break;
+                case "!":
+                    result = Calc.Factorial(firstOperand);
+                    break;
 
-
-
+                case "S":
+                    result = Calc.Stepen(firstOperand, secondOperand);
+                    break;
+               
                 default:
                     Console.WriteLine("No such operator :( ");
                     break;
